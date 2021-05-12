@@ -3,8 +3,11 @@ package ru.savinov;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 
+/***
+ * assertArrayEquals для сравнения массивов. проверяет что компоненты массива А находятся на тех же местах
+ * что и для массива В
+ */
 public class BubbleSortTest {
 
     @Test

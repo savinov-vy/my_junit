@@ -3,6 +3,9 @@ package ru.savinov;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
+/***
+ * assertEquals сравнивает объекты через переопределенный метод equals
+ */
 public class CalculatorTest {
     @Test
     public void testEvaluate() {

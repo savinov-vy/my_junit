@@ -5,6 +5,12 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/***
+ * assertFalse - ожидает возврата из тестируемого метода false
+ * assertTrue - ожидает возврата из метода true
+ * assertEquals - сравнивает объекты через переопределенный метод equals
+ */
+
 public class StringUtilsTest {
     StringUtils stringUtils;
 
