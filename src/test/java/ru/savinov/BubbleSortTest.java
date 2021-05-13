@@ -16,4 +16,14 @@ public class BubbleSortTest {
         int [] expected = {-17, 2, 3, 7, 10};
         assertArrayEquals(expected, BubbleSort.bubbleSortArr(actual));
     }
+
+    /**
+     * Метод ожидает ошибку при прохождении теста
+     */
+    @Test(expected = NullPointerException.class)
+    public void testBubbleSortArr_OkTestWithExeption() {
+        int [] actual = null; // {2,-17,3,7,10};
+        int [] expected = {-17, 2, 3, 7, 10};
+        assertArrayEquals(expected, BubbleSort.bubbleSortArr(actual));
+    }
 }
