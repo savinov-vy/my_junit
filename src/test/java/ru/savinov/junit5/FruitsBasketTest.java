@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.util.NoSuchElementException;
 
 
@@ -41,6 +42,11 @@ public class FruitsBasketTest {
     void testRemove_Exeption() {
         Assertions.assertThrows(NoSuchElementException.class,
                 () -> fruitsBasket.remove(banana), "Removing a fruit from the basket");
+    }
+
+    @Test
+    void testForTimeout() {
+        Assertions.assertTimeout(Duration.ofMillis(1L),() -> fruitsBasket.remove(apple) , "Testing for productivity");
     }
 
     @AfterEach
