@@ -1,13 +1,15 @@
 package ru.savinov.junit5;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 import java.util.NoSuchElementException;
 
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FruitsBasketTest {
     FruitsBasket fruitsBasket = new FruitsBasket();
@@ -24,30 +26,49 @@ public class FruitsBasketTest {
     @Test
     void testAdd() {
         fruitsBasket.add(banana);
-        Assertions.assertEquals(3, fruitsBasket.getSize());
+        assertEquals(3, fruitsBasket.getSize());
     }
 
     @Test
     void testSize() {
-        Assertions.assertEquals(2, fruitsBasket.getSize(), "Checking basket's size");
+        assertEquals(2, fruitsBasket.getSize(), "Checking basket's size");
     }
 
     @Test
     void testRemove() {
         fruitsBasket.remove(orange);
-        Assertions.assertEquals(1, fruitsBasket.getSize(), "Removing a fruit from the basket");
+        assertEquals(1, fruitsBasket.getSize(), "Removing a fruit from the basket");
     }
 
     @Test
     void testRemove_Exeption() {
-        Assertions.assertThrows(NoSuchElementException.class,
+        assertThrows(NoSuchElementException.class,
                 () -> fruitsBasket.remove(banana), "Removing a fruit from the basket");
     }
 
     @Test
     void testForTimeout() {
-        Assertions.assertTimeout(Duration.ofMillis(1L),() -> fruitsBasket.remove(apple) , "Testing for productivity");
+        assertTimeout(Duration.ofMillis(1L), () -> fruitsBasket.remove(apple), "Testing for productivity");
     }
+
+    @Test
+    void testAddALot() {
+        List<Fruit> lot = Arrays.asList(
+                new Fruit("Peach", 100),
+                new Fruit("Tangerine", 50),
+                new Fruit("Mango", 150)
+        );
+        assertTrue(fruitsBasket.addALot(lot), "Adding a lot of fruits");
+    }
+
+    @Test
+    void testArrays() {
+        String wish = "Желаю счастья в личной жизни, Пух!";
+        String[] expected = {"Желаю", "счастья", "в", "личной", "жизни,", "Пух"};
+        String[] actual = fruitsBasket.greet(wish);
+        assertArrayEquals(expected, actual);
+    }
+
 
     @AfterEach
     void destroy() {
