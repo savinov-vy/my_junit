@@ -1,5 +1,6 @@
-package ru.savinov;
+package ru.savinov.junit4;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -14,7 +15,7 @@ public class BubbleSortTest {
     public void testBubbleSortArr() {
         int [] actual = {2,-17,3,7,10};
         int [] expected = {-17, 2, 3, 7, 10};
-        assertArrayEquals(expected, BubbleSort.bubbleSortArr(actual));
+        Assert.assertArrayEquals(expected, BubbleSort.bubbleSortArr(actual));
     }
 
     /**

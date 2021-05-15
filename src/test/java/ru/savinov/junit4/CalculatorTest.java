@@ -1,4 +1,4 @@
-package ru.savinov;
+package ru.savinov.junit4;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;

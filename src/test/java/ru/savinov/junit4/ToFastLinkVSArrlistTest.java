@@ -1,4 +1,4 @@
-package ru.savinov;
+package ru.savinov.junit4;
 
 import org.junit.Before;
 import org.junit.Test;

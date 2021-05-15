@@ -1,4 +1,4 @@
-package ru.savinov;
+package ru.savinov.junit4;
 
 public class StringUtils {
     // "  **" ---> "**", " **" ---> "**", "****" ---> "****", "**  " ---> "**  "
