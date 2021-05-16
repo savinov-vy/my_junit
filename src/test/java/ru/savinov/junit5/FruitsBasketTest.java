@@ -2,6 +2,7 @@ package ru.savinov.junit5;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
@@ -24,34 +25,40 @@ public class FruitsBasketTest {
     }
 
     @Test
+    @DisplayName("add fruit to basket")
     void testAdd() {
         fruitsBasket.add(banana);
         assertEquals(3, fruitsBasket.getSize());
     }
 
     @Test
+    @DisplayName("getSize basket")
     void testSize() {
         assertEquals(2, fruitsBasket.getSize(), "Checking basket's size");
     }
 
     @Test
+    @DisplayName("remove from basket if fruit present")
     void testRemove() {
         fruitsBasket.remove(orange);
         assertEquals(1, fruitsBasket.getSize(), "Removing a fruit from the basket");
     }
 
     @Test
+    @DisplayName("remove from basket if fruit empty")
     void testRemove_Exeption() {
         assertThrows(NoSuchElementException.class,
                 () -> fruitsBasket.remove(banana), "Removing a fruit from the basket");
     }
 
     @Test
+    @DisplayName("remove from basket if fruit empty")
     void testForTimeout() {
         assertTimeout(Duration.ofMillis(1L), () -> fruitsBasket.remove(apple), "Testing for productivity");
     }
 
     @Test
+    @DisplayName("add a lot")
     void testAddALot() {
         List<Fruit> lot = Arrays.asList(
                 new Fruit("Peach", 100),
