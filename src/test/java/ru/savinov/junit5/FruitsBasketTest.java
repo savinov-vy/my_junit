@@ -1,9 +1,6 @@
 package ru.savinov.junit5;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -68,7 +65,7 @@ public class FruitsBasketTest {
         assertTrue(fruitsBasket.addALot(lot), "Adding a lot of fruits");
     }
 
-    @Test
+    @RepeatedTest(5)
     void testArrays() {
         String wish = "Желаю счастья в личной жизни, Пух!";
         String[] expected = {"Желаю", "счастья", "в", "личной", "жизни,", "Пух"};
